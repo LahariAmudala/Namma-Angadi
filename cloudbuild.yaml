@@ -23,7 +23,7 @@ steps:
       - "--region=us-central1"
       - "--allow-unauthenticated"
       - "--port=8080"
-logsBucket: 'gs://charged-muse-376504-iac-tf-state/$REPO_NAME/$BRANCH/logs'
+logsBucket: 'gs://charged-muse-376504-iac-tf-state/$REPO_NAME/$BRANCH_NAME/logs'
 options:
   logging: GCS_ONLY      
 
