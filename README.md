@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# namma-angadi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React.js application served using **Nginx** and deployed on **Google Cloud Run**.
 
-## Available Scripts
+## 🚀 Features
+- React frontend built with Node.js
+- Served via Nginx for optimized performance
+- Containerized using Docker
+- CI/CD using Google Cloud Build
+- Deployed on Google Cloud Run
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🛠️ Setup & Installation
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/LahariAmudala/namma-angadi.git
+cd namma-angadi
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **2️⃣ Install Dependencies**
+```sh
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **3️⃣ Run Locally**
+```sh
+npm start
+```
+App runs on `http://localhost:3000`
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🐳 Docker Setup
+### **1️⃣ Build Docker Image**
+```sh
+docker build -t namma-angadi .
+```
 
-### `npm run build`
+### **2️⃣ Run Docker Container**
+```sh
+docker run -e PORT=8080 -p 8080:8080 namma-angadi
+```
+App runs on `http://localhost:8080`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Deploying to Google Cloud Run
+### **1️⃣ Authenticate & Set Project**
+```sh
+gcloud auth login
+gcloud config set project YOUR_PROJECT_ID
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **2️⃣ Build & Push Docker Image**
+```sh
+docker build -t gcr.io/YOUR_PROJECT_ID/namma-angadi .
+docker push gcr.io/YOUR_PROJECT_ID/namma-angadi
+```
 
-### `npm run eject`
+### **3️⃣ Deploy to Cloud Run**
+```sh
+gcloud run deploy namma-angadi \
+  --image gcr.io/YOUR_PROJECT_ID/namma-angadi \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --port 8080
+```
+After deployment, Cloud Run provides a URL like:
+```
+https://namma-angadi-xyz.a.run.app
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🌐 **Live App URL**
+[Click here to access the app](https://namma-angadi-320668246657.us-central1.run.app)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔄 CI/CD with Google Cloud Build
+### **Trigger Deployment on Git Push**
+A Cloud Build trigger automatically builds and deploys the app on every push to `main`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To manually trigger:
+```sh
+gcloud builds submit --config cloudbuild.yaml .
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📜 License
+This project is licensed under the **MIT License**.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 💡 Contributing
+We welcome contributions! Feel free to submit PRs or open issues.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📞 Contact
+For queries, reach out at: **lahariamudala10@gmail.com**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
