@@ -1,4 +1,3 @@
-# Use Node.js for building the React app
 FROM node:18 as build
 WORKDIR /app
 COPY package.json package-lock.json ./
@@ -17,4 +16,5 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port for Cloud Run (uses environment variable PORT)
-CMD ["/bin/sh", "-c", "envsubst '$$PORT' < /etc/nginx/conf.d/default.conf > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
+EXPOSE 8080
+CMD ["/bin/sh", "-c", "envsubst '$$PORT' < /etc/nginx/conf.d/default.conf > /etc/nginx/conf.d/default_tmp.conf && mv /etc/nginx/conf.d/default_tmp.conf /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
