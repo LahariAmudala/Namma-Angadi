@@ -17,7 +17,7 @@ steps:
     args:
       - "run"
       - "deploy"
-      - "react-nginx-app"
+      - "namma-angadi"
       - "--image=us-central1-docker.pkg.dev/$PROJECT_ID/namma-angadi/namma-angadi-fe:$SHORT_SHA"
       - "--platform=managed"
       - "--region=us-central1"
