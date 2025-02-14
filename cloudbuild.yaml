@@ -23,6 +23,9 @@ steps:
       - "--region=us-central1"
       - "--allow-unauthenticated"
       - "--port=8080"
+logsBucket: 'gs://charged-muse-376504-iac-tf-state/$REPO_NAME/$BRANCH/logs'
+options:
+  logging: GCS_ONLY      
 
 images:
   - "us-central1-docker.pkg.dev/$PROJECT_ID/namma-angadi/namma-angadi-fe:$SHORT_SHA"
