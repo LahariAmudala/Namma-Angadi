@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const TopBar = () => {
   const styles = {
     container: {
@@ -110,9 +111,40 @@ const TopBar = () => {
           <span style={styles.accountLink}>Sign In</span>
           <span style={styles.accountLink}>/</span>
           <span style={styles.accountLink}>Sign Up</span>
+
+
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   );
 };
 

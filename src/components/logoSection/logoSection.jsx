@@ -26,7 +26,7 @@ const LogoSection = ({ text = "Namma Angadi" }) => {
 
   return (
     <div style={logoStyle}>
-      <h1 style={textStyle}>{text}</h1>
+      <h1 style={textStyle }>{text}</h1>
     </div>
   );
 };

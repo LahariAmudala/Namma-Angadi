@@ -9,7 +9,9 @@ const IconsSection = () => {
       alignItems: 'center',
       minWidth: '191px',
       height: '34px',
-      padding: '0 16px'
+      padding: '0 16px',
+      
+      
     }}>
       {/* Heart Icon */}
       <img 
